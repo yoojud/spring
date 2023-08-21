@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>imageupload</title>
+
+    <style>
+        .container{
+            width: 700px;
+            margin: 0px auto;
+            border: 1px solid #cccccc;
+            padding: 30px;
+        }
+
+        .lbl{
+            display: inline-block;
+            width: 100px;
+            border: 0px solid #cccccc;
+            vertical-align: top;
+        }
+
+         .margin {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>물품등록</h3>
+        <hr />
+        
+        <div class="margin">
+            <label class="lbl">물품번호</label>
+            <input type="number" style="width: 140px;" id="no" />
+        </div>
+        
+        <div class="margin">
+            <label class="lbl">물품명</label>
+            <input type="text" style="width: 140px;" id="name" />
+        </div>
+        
+        <div class="margin">
+            <label class="lbl">물품설명</label>
+            <textarea rows="6" style="width: 140px;" id="content"></textarea>
+        </div>
+
+        <div class="margin">
+            <label class="lbl">가격</label>
+            <input type="number" style="width: 140px;" id="price" />원
+        </div>
+
+        <div class="margin">
+            <label class="lbl">수량</label>
+            <input type="number" style="width: 140px;" id="quantity" />개
+        </div>
+
+        <div class="margin">
+            <label class="lbl">이미지</label>
+            <img src="./imgs/noimage.jpg" style="width:50px; height:50px;" id="image" />
+            <input type="file" id="file" onchange="handleImage(this)" />
+        </div>
+
+        <div class="margin">
+            <label class="lbl"></label>
+            <button onclick="handleInsert()">등록하기</button>
+        </div>
+
+    </div>
+
+    <script>
+
+        function handleInsert() {
+            const no = document.getElementById('no');
+            const name = document.getElementById('name');
+            const content = document.getElementById('content');
+            const price = document.getElementById('price');
+            const quantity = document.getElementById('quantity');
+
+            if (no.value.length < 1 ) { // 입력한 내용의 길이로 확인
+                alert('물품번호 입력하세요.');
+                no.focus();
+                return; //여기서 종료
+            }
+
+            if (name.value === '') { // 입력한 내용으로 확인
+                alert('물품명 입력하세요.');
+                name.focus();
+                return;
+            }
+            //내용, 가격, 수량 유효성 검사 수행
+
+            alert('등록이 가능한 시점');
+        }
+
+
+        function handleImage(e) {
+            const image = document.getElementById('image');
+
+            //  첨부한 파일은  e.files에 n개 보관되어 있음  ex) e.files[0], e.files[1], e.files[2]
+            console.log(e.files); //length 0 또는 length 1
+            if(e.files.length <= 0 ) { //첨부 안됨.
+                image.src = './imgs/noimage.jpg';
+            }
+            else { //파일이 첨부됨.
+                image.src = URL.createObjectURL(e.files[0]);
+            }
+        }
+
+    </script>
+</body>
+</html>

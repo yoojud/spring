@@ -1,0 +1,12 @@
+.container {
+    width   : 700px;
+    border  : 1px solid #cccccc;
+    padding : 20px;
+}
+
+.lbl {
+    width : 100px;
+    display: inline-block;
+}
+
+

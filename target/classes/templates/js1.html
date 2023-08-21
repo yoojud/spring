@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript 실습</title>
+    <style>
+        .container {
+            width  : 700px;
+            margin : 0px auto;
+            padding : 30px;
+            border :  1px solid #cccccc;
+        }
+
+        .item {
+            border : 1px solid #cccccc;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>javascript 실습</h3>
+        <div class="item">
+            1. 실시간 아이디 중복 확인용 <input type="text" id="text" onkeyup="handleKeyup()"/>
+        </div>
+        <div class="item">
+            2. 체크박스의 체크 확인용(약관동의) <input type="checkbox" id="chk" /> 약관동의
+            <button onclick="handleCheck()">체크유무확인용</button>
+        </div>
+        <div class="item">
+            3. 체크박스 여러개 
+            <input type="checkbox" value="html" class="chk1" />html
+            <input type="checkbox" value="css" class="chk1" />css
+            <input type="checkbox" value="js" class="chk1" />js
+            <button onclick="handleCheckMulti()">체크유무확인용</button>
+        </div>
+    </div>
+
+    <script>
+
+        function handleCheckMulti() {
+            //chk1 3개의 태그를 가지고 있음
+            const chk1 = document.getElementsByClassName('chk1');
+            
+            // 반복문(3번 수행)
+            for ( let tmp of chk1 ) { //chk1에 있는 태그 1개를 꺼내서 tmp에 복사해줌
+                if(tmp.checked === true){
+                    console.log(tmp.value);
+                }
+            }
+        }
+
+        function handleCheck() { //click
+            const chk = document.getElementById('chk');
+            if(chk.checked === true) {
+                alert('체크박스 체크됨.');
+            }
+            else {
+                alert('체크박스 체크안됨.');
+            }
+        }
+
+        function handleKeyup() { // keyup
+            const txt = document.getElementById('text');// 위의 태그 중에 엘리먼트 연결하기
+            console.log(txt.value); // 실제로 입력했던 값 출력
+        }
+
+    </script>
+</body>
+</html>

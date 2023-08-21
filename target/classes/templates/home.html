@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홈화면</title>
+
+    <link href="./css/style1.css" rel="stylesheet"/>
+    <style>
+        .container {
+            width   : 900px;
+            margin  : 0px auto;
+            border  : 1px solid #cccccc;
+            padding : 10px
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 200px 500px 200px; /* 가로의 크기 설정 */
+            grid-template-rows: 100px 300px 100px;  /* 높이 설정 */
+        }
+
+        .item {
+            border : 1px solid #cccccc;
+        }
+        
+        .item:nth-child(1) {
+            grid-column-start: 1;
+            grid-column-end:4;
+        }
+
+        .item:nth-child(5) {
+            grid-column-start: 1;
+            grid-column-end:4;
+        }
+
+    </style>
+</head>
+
+
+<body>
+    <div class="container">
+        <h1>홈화면테스트</h1>
+        <div class="grid">
+            <div class="item">a</div>
+
+            <div class="item">
+                <a href="join.html"><button>회원가입</button></a><br />
+                <a href="join1.html"><button>회원가입1</button></a><br />
+                <a href="market.html"><button>마켓</button></a><br />
+
+                <form action="boardlist.html" method="get">
+                    <input type="submit" value="게시판목록" />
+                </form>
+
+                <a href="form.html"><button>form</button></a><br />
+
+            </div>
+
+            <div class="item">c</div>
+
+            <div class="item">d</div>
+            
+            <div class="item">e</div>
+        </div>
+    </div>
+
+
+</body>
+</html>

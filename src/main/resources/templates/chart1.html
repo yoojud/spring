@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chart1</title>
+    <style>
+        .container {
+            width   : 700px;
+            padding : 10px;
+            border  : 1px solid #cccccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>차트실습</h3>
+        <canvas id="myChart"></canvas>
+        <button onclick="handleChange()">데이터변경하기</button>
+    </div>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script>
+        // 차트를 그려야 하는 태그 연결
+        const ctx = document.getElementById('myChart').getContext('2d');
+
+        // 차트에 그려야 되는 데이터 정보
+        const config = {
+            type: 'bar',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [
+                    {
+                        label: '# of Votes',
+                        data: [12, 19, 3, 5, 2, 3],
+                        borderWidth: 4
+                    },
+                    {
+                        label: '# of Votes',
+                        data: [22, 13, 13, 35, 42, 53],
+                        borderWidth: 4
+                    }
+                ]
+            },
+        };
+
+        //  차트 생성(그려야 되는 태그, 데이터)
+        const myChart = new Chart(ctx, config);
+
+        function handleChange() {
+            config.data.datasets[0].data = [123, 45, 67, 78, 34, 90]; //데이터 바꾸기
+            myChart.update(); // 차트 갱신하기
+        }
+
+        function handleChange1() {
+            
+        }
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width   :600px; 
+            border  :1px solid #cccccc; 
+            padding :30px;
+            margin  :50px auto 0px auto;
+
+        }
+        .qwer{
+            width : 100px;
+            display : inline-block;
+        }
+    </style>
+</head>
+
+<body> 
+    <div class="container">
+        <div>
+            <h3>회원가입1</h3>
+            <hr />
+        </div>
+        <div>
+            <div style="margin-bottom: 5px;">
+                <label style="width:100px;display:inline-block">아이디</label>
+                <input type="text" placeholder="아이디"/> 
+                <label>중복확인</label>
+            </div>
+        <div>
+            <label class="qwer">암호</label>
+            <input tpye="password" placeholder="암호입력">
+        </div>
+        <div>
+            <label class="qwer">성별</label>
+            <input type="radio" name="gender"/>남
+            <input type="radio" name="gender"/>여
+        </div>
+        <div style="margin-bottom: 10px;">
+            <label class="qwer">이메일</label>
+            <input type="text" />
+            <label>@</label>
+            <select id="usermail">
+                <option>naver.com</option>
+                <option>gamil.com</option>
+            </select>
+        </div>
+    </div>
+</body>
+</html>

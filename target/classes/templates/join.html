@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+</head>
+
+<body>
+    <div style="width:700px; border:1px solid #cccccc; padding:30px;">
+        <div>
+            <h3>회원가입</h3>
+            <hr />
+        </div>
+
+        <div>
+            <label style="width:100px; display: inline-block;">아이디</label>
+            <input type="text" placeholder="아이디" id="userid" />
+            <label>중복확인</label>
+        </div>
+        
+        <div>
+            <label style="width:100px; display: inline-block;">암호</label>
+            <input type="password" placeholder="암호" id="userpw" />
+        </div>
+       
+        <div>
+            <label style="width:100px; display: inline-block;">암호확인</label>
+            <input type="password" placeholder="암호확인" id="userpw1" />
+        </div>
+
+        <div>
+
+        </div>
+        
+        <div>
+            <label style="width:100px; display: inline-block;">이메일</label>
+            <input type="text" placeholder="이메일" />
+            <label>@</label>
+            <select>
+                <option>naver.com</option>
+                <option>gmail.com</option>
+            </select>
+        </div>
+
+        <div></div>
+        <div>
+            <label style="width:100px; display: inline-block;"></label>
+            <button onclick="handleJoin()">회원가입</button>
+        </div>
+    </div>
+
+
+    <script>
+        function handleJoin() {
+
+            const userid = document.getElementById('userid');
+            if (userid.value === '') {
+                alert('아이디 입력안해요?');
+                userid.focus();
+                return;
+            }
+
+            const userpw = document.getElementById('userpw');
+            if (userpw.value === '') {
+                alert('암호 입력안해요?');
+                userpw.focus();
+                return;
+            }
+
+            const userpw1 = document.getElementById('userpw1');
+            if (userpw1.value === '') {
+                alert('암호 입력안해요?');
+                userpw1.focus();
+                return;
+            }
+
+            if(userpw.value !== userpw1.value) { // 암호와 암호확인이 다르면
+                alert('암호가 틀립니다.');
+                userpw1.focus();
+                return;
+            }
+            
+            alert('회원가입 가능 시점');
+
+        }
+    </script>
+
+</body>
+</html>
