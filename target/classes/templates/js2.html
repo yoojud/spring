@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
         .container {
-            width   : 200px;
-            padding : 20px;
-            border  : 1px solid #cccccc;
+            width: 200px;
+            padding: 20px;
+            border: 1px solid #cccccc;
         }
 
         table {
@@ -21,7 +22,7 @@
 
 <body>
     <div class="container">
-        
+
         <table border="1">
             <thead>
                 <tr>
@@ -45,25 +46,25 @@
     <script>
         function loadData() {
 
-            const data3 = {no:111, name:'bbb', data:{no:222, name:'ddd', data1:"fff"}};
+            const data3 = { no: 111, name: 'bbb', data: { no: 222, name: 'ddd', data1: "fff" } };
 
             //{ ,  }
-            const data2 = {no : 123, data:[{no:1,name:'a1'}, {no:2,name:'b1'}]};
+            const data2 = { no: 123, data: [{ no: 1, name: 'a1' }, { no: 2, name: 'b1' }] };
             console.log(data2.no); //123
             console.log(data2.data[0].no); //[{no:1,name:'a'}, {no:2,name:'b'}]
 
 
             // 물품1개정보 =>  { , , }
-            const data = { no:2, name:'포도', price:1340 }; // javascript object
+            const data = { no: 2, name: '포도', price: 1340 }; // javascript object
             console.log(data.no); //2
             console.log(data.name); //포도
             console.log(data.price); //1340
 
             // 물품n개정보 => [ {,,}, {,,}, {,,} ]
             const data1 = [
-                { no:2, name:'포도2', price:1340 },
-                { no:3, name:'포도3', price:2340 },
-                { no:4, name:'포도4', price:3340 }
+                { no: 2, name: '포도2', price: 1340 },
+                { no: 3, name: '포도3', price: 2340 },
+                { no: 4, name: '포도4', price: 3340 }
             ];
 
             console.log(data1[0].no); //2
@@ -76,15 +77,15 @@
             const tbody = document.getElementById('tbody'); // 태그 개체 연결하기
 
             //data1의 있는 내용1개를 tmp로 복사함. [{},{},{}]  
-            for (let tmp of data1) { 
+            for (let tmp of data1) {
                 console.log(tmp.no, tmp.name, tmp.price);
 
                 //tbody에 아래 내용으로 추가하기
-                tbody.innerHTML += 
-                    `<tr>` + 
-                        `<td>${tmp.no}</td>`+
-                        `<td>${tmp.name}</td>`+
-                        `<td>${tmp.price}</td>`+
+                tbody.innerHTML +=
+                    `<tr>` +
+                    `<td>${tmp.no}</td>` +
+                    `<td>${tmp.name}</td>` +
+                    `<td>${tmp.price}</td>` +
                     `</tr>`;
             }
         }
@@ -92,4 +93,5 @@
         loadData(); //  호출시킴
     </script>
 </body>
+
 </html>

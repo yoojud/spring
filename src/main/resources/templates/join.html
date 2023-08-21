@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,12 +19,12 @@
             <input type="text" placeholder="아이디" id="userid" />
             <label>중복확인</label>
         </div>
-        
+
         <div>
             <label style="width:100px; display: inline-block;">암호</label>
             <input type="password" placeholder="암호" id="userpw" />
         </div>
-       
+
         <div>
             <label style="width:100px; display: inline-block;">암호확인</label>
             <input type="password" placeholder="암호확인" id="userpw1" />
@@ -32,7 +33,7 @@
         <div>
 
         </div>
-        
+
         <div>
             <label style="width:100px; display: inline-block;">이메일</label>
             <input type="text" placeholder="이메일" />
@@ -75,16 +76,17 @@
                 return;
             }
 
-            if(userpw.value !== userpw1.value) { // 암호와 암호확인이 다르면
+            if (userpw.value !== userpw1.value) { // 암호와 암호확인이 다르면
                 alert('암호가 틀립니다.');
                 userpw1.focus();
                 return;
             }
-            
+
             alert('회원가입 가능 시점');
 
         }
     </script>
 
 </body>
+
 </html>

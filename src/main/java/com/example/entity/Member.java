@@ -26,10 +26,10 @@ public class Member {
 
     @Id
     private String email;
-    
+
     private String password;
     private String name;
-    private String phone;//010-0000-0000
-    
+    private String phone;// 010-0000-0000
+
     private Date regdate;
 }

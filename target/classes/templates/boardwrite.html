@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,10 +17,10 @@
             <div style="margin-bottom: 5px;">
                 <label class="lbl">제목</label>
                 <input type="text" placeholder="제목" id="title" name="title" />
-            </div>        
+            </div>
             <div>
                 <label class="lbl">내용</label>
-                <div style="display: inline-block; width:560px;"> 
+                <div style="display: inline-block; width:560px;">
                     <div id="editor" style="height: 300px;">
                         <p>Hello World!</p>
                         <p>Some initial <strong>bold</strong> text</p>
@@ -30,10 +31,10 @@
             </div>
             <div>
                 <label class="lbl">작성자</label>
-                <input type="text" placeholder="작성자" id="writer" name="writer"/>
+                <input type="text" placeholder="작성자" id="writer" name="writer" />
             </div>
             <div>
-                <input type="button" class="btn btn-primary" onclick="handleWrite()" value="글쓰기"/>
+                <input type="button" class="btn btn-primary" onclick="handleWrite()" value="글쓰기" />
                 <a href="/board/list.do" class="btn btn-primary">목록으로</a>
             </div>
         </form>
@@ -47,9 +48,9 @@
             ['blockquote', 'code-block'],
 
             [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-            [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-            [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
+            [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
             [{ 'direction': 'rtl' }],                         // text direction
 
             [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
@@ -75,13 +76,13 @@
             const title = document.getElementById('title');
             const writer = document.getElementById('writer');
 
-            if(title.value.length < 2) { //2자 미만
+            if (title.value.length < 2) { //2자 미만
                 alert('제목은 2자 이상입니다.');
                 title.focus();
                 return false;
             }
 
-            if(writer.value.length < 2) {
+            if (writer.value.length < 2) {
                 alert('작성자 2자 이상입니다.');
                 writer.focus();
                 return false;
@@ -96,9 +97,10 @@
             // form 태그로 찾음
             const form = document.getElementById('form');
             form.submit();
-            
+
             //alert('글쓰기 가능한 시점');
         }
     </script>
 </body>
+
 </html>

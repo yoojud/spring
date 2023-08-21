@@ -9,10 +9,10 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @SpringBootApplication
 
 // 컨트롤러위치
-@ComponentScan(basePackages = {"com.example.controller"})
+@ComponentScan(basePackages = { "com.example.controller" })
 
 // 엔티티위치
-@EntityScan(basePackages = {"com.example.entity"})
+@EntityScan(basePackages = { "com.example.entity" })
 
 // 저장소위치
 @EnableMongoRepositories(basePackages = "com.example.repository")

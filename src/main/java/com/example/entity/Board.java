@@ -23,10 +23,10 @@ public class Board {
 
     @Id
     private long no;
-    
+
     private String title;
     private String content;
     private String writer;
-    private long hit=1;
+    private long hit = 1;
     private Date regdate;
 }

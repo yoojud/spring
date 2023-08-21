@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>로그인</title>
     <style>
         .container {
-            width   : 500px; 
-            border  : 1px solid #169c5c; 
-            padding : 30px;
+            width: 500px;
+            border: 1px solid #169c5c;
+            padding: 30px;
         }
 
         .lbl {
-            width:100px; 
-            display:inline-block;
+            width: 100px;
+            display: inline-block;
         }
     </style>
 </head>
@@ -47,7 +48,7 @@
             // 1. 아이디
             const uid = document.getElementById('id'); //위에 태그에서 id가 일치하는 태그를 찾음
             console.log(uid.value); // 태그의 실제 입력내용
-            if(uid.value === '') { // 내용을 입력하지 않음
+            if (uid.value === '') { // 내용을 입력하지 않음
                 alert('아이디 입력하세요.'); //알림 표시하기
                 uid.focus(); //자동으로 커서가 클릭됨.
                 return; // 더 이상 실행하지 않게 종료
@@ -55,7 +56,7 @@
 
             // 2.  암호
             const upw = document.getElementById('pw'); //  위의 태그에서 id가 pw인 태그를 찾음
-            if(upw.value === '') { //암호입력하지 않았다면
+            if (upw.value === '') { //암호입력하지 않았다면
                 alert('암호입력하세요.'); //알림표시
                 upw.focus(); // 포커스 이동
                 return; // 더 이상 실행하지 않게 종료
@@ -63,22 +64,9 @@
         }
 
         function handleHome() {
-            window.location.href='home.html'; /* script를 이용해서 주소를 변경하고 엔터키 == <a href> */
+            window.location.href = 'home.html'; /* script를 이용해서 주소를 변경하고 엔터키 == <a href> */
         }
     </script>
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
