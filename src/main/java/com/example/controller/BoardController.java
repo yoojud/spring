@@ -1,16 +1,17 @@
 package com.example.controller;
-import com.example.entity.Board;
-import com.example.repository.BoardRepository;
-
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import lombok.RequiredArgsConstructor;
+import com.example.entity.Board;
+import com.example.repository.BoardRepository;
 
+import lombok.RequiredArgsConstructor;
 
 // 컨트롤러 => 크롬에서 주소를 입력하면 자동으로 실행되는 역할
 @Controller
@@ -28,14 +29,18 @@ public class BoardController {
         return "boardone";
     }
 
-    
     // http://127.0.0.1:8080/board/list.do
     @GetMapping(value = "/board/list.do")
-    public String boardList() {
+    public String boardList(Model model) {
+        // DB에서 전체 내용을 가져옴
+        List<Board> list = bRepository.findAll();
+        // terminal 확인하기
+        System.out.println(list.toString());
+        // html로 DB에서 꺼낸값 전송
+        model.addAttribute("list", list);
         //resources/templates/boardlist1.html 표시됨.
         return "boardlist1";
     }
-
 
     //  글쓰기 화면 http://127.0.0.1:8080/board/insert.do
     @GetMapping(value = "/board/insert.do")
