@@ -11,17 +11,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-// 이메일
-// 암호
-// 이름
-// 연락처
-// 가입일자
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Document(collection = "members")
+
 public class Member {
 
     @Id
@@ -29,7 +25,7 @@ public class Member {
 
     private String password;
     private String name;
-    private String phone;// 010-0000-0000
+    private String phone; // 010-0000-0000
 
     private Date regdate;
 }

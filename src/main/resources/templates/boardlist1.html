@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>게시판목록</title>
   <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+
 </head>
 
 <body>
@@ -41,7 +42,9 @@
       <tbody>
         <tr th:each="obj : ${list}">
           <th th:text="${obj.no}"></th>
-          <td th:text="${obj.title}"></td>
+          <td>
+            <a th:href="@{/board/selectone.do(no=${obj.no})}" th:text="${obj.title}"></a>
+          </td>
           <td th:text="${obj.writer}"></td>
           <td th:text="${obj.hit}"></td>
           <td th:text="${obj.regdate}"></td>

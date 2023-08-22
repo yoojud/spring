@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.entity.Board;
 import com.example.repository.BoardRepository;
@@ -25,8 +26,19 @@ public class BoardController {
 
     // http://127.0.0.1:8080/board/selectone.do
     @GetMapping(value = "/board/selectone.do")
-    public String boardOne() {
+    public String boardOne(@RequestParam(name = "no") long no, Model model) {
         // resources/templates/boardlist1.html 표시됨.
+        System.out.println(no);
+
+        // DB에서 정보 꺼내기
+        Board brd = bRepository.findById(no).orElse(null);
+        System.out.println(no);
+
+        // html 전송
+        model.addAttribute("board", brd);
+        model.addAttribute("title", "게시판상세");
+
+        // html 표시
         return "boardone";
     }
 
@@ -64,4 +76,31 @@ public class BoardController {
         return "redirect:/board/list.do";
     }
 
+    // 글 삭제하기 delete.do 
+    @GetMapping(value = "/board/delete.do")
+    public String boardDelete(@RequestParam(name = "no") long no) {
+        System.out.println(no);
+
+        // DB 삭제하기
+        bRepository.deleteById(no);
+        System.out.println(no);
+
+        // 주소를 변경시켜서 목록으로 이동
+        return "redirect:/board/list.do";
+    }
+
+    // 글 변경하기 update.do 
+    @GetMapping(value = "/board/update.do")
+    public String boardUpdate(@RequestParam(name = "no") long no, Model model) {
+        System.out.println(no);
+
+        // 글번호를 이용해서 데이터읽기
+        Board brd = bRepository.findById(no).orElse(null);
+
+        // html로 전달
+        model.addAttribute("board", brd);
+
+        // html로 표시
+        return "boardupdate";
+    }
 }

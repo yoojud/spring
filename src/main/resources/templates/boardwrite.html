@@ -29,7 +29,7 @@
                     <textarea name="content" id="content" style="display: none;"></textarea>
                 </div>
             </div>
-            <div>
+            <div style="margin-bottom: 5px;">
                 <label class="lbl">작성자</label>
                 <input type="text" placeholder="작성자" id="writer" name="writer" />
             </div>
@@ -62,7 +62,6 @@
 
             ['clean']                                         // remove formatting button
         ];
-
 
         var quill = new Quill('#editor', {
             modules: {

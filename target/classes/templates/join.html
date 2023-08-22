@@ -11,18 +11,19 @@
     <div style="width:700px; border:1px solid #cccccc; padding:30px;">
         <div>
             <h3>회원가입</h3>
-            <hr />
+            <hr/>
         </div>
 
         <div>
             <label style="width:100px; display: inline-block;">아이디</label>
-            <input type="text" placeholder="아이디" id="userid" />
-            <label>중복확인</label>
+            <input type="text" placeholder="아이디" id="userid" th:text="${obj.id}"/>
+            <a th:href="@{/member/check.do(id=${obj.id})}" th:text="중복확인" class="btn btn-success"></a>
+            <!--<label>중복확인</label>-->
         </div>
 
         <div>
             <label style="width:100px; display: inline-block;">암호</label>
-            <input type="password" placeholder="암호" id="userpw" />
+            <input type="password" placeholder="암호" id="userpw" th:text="${obj.password}"/>
         </div>
 
         <div>
@@ -36,7 +37,7 @@
 
         <div>
             <label style="width:100px; display: inline-block;">이메일</label>
-            <input type="text" placeholder="이메일" />
+            <input type="text" placeholder="이메일" th:text="${obj.email}"/>
             <label>@</label>
             <select>
                 <option>naver.com</option>

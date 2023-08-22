@@ -1,12 +1,11 @@
 .container {
-    width   : 700px;
-    border  : 1px solid #cccccc;
-    padding : 20px;
+    width: 700px;
+    border: 1px solid #cccccc;
+    padding: 20px;
+    /*margin: 0 auto;*/
 }
 
 .lbl {
-    width : 100px;
+    width: 100px;
     display: inline-block;
 }
-
-
