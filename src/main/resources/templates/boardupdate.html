@@ -94,7 +94,8 @@
         });
 
         // 내용 읽어서 추가하기
-        quill.pasteHTML([[ ${board.content} ]]);
+        const cont =/*[[ ${board.content} ]]*/"";
+        quill.pasteHTML(cont);
 
         // 제목, 작성자의 유효성검사
         function handleWrite() {

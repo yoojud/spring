@@ -10,11 +10,7 @@ public class MemberController {
         return "join";
     }
 
-    // 아이디 중복확인
-    @GetMapping(value = "/member/check.do")
-    public String check(){
-        //
-    }
+    
     
 
     // 암호확인

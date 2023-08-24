@@ -13,12 +13,12 @@
   <div class="container">
     <h3>게시글 목록</h3>
 
-    <form class="row row-cols-lg-auto g-3 align-items-center">
+    <form th:action="@{/board/list.do}" method="get" class="row row-cols-lg-auto g-3 align-items-center">
       <div class="col-12">
         <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
         <div class="input-group">
           <div class="input-group-text">검색</div>
-          <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="검색어">
+          <input type="text" class="form-control" id="inlineFormInputGroupUsername" name="txt" placeholder="검색어" />
         </div>
       </div>
 
@@ -56,26 +56,37 @@
       <div class="row justify-content-md-center">
         <div class="col-md-auto">
           <nav aria-label="Page navigation example">
-            <ul class="pagination">
-              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" href="#">Next</a></li>
-            </ul>
+            <ul class="pagination" id="pagination"></ul>
           </nav>
         </div>
       </div>
+    </div>
+
+  </div>
+
+
+  <script th:src="@{/js/jquery-3.7.0.min.js}"></script>
+  <script th:src="@{/js/jquery.twbsPagination.min.js}"></script>
+  <script th:inline="javascript">
+
+    const page =/*[[${pages}]]*/"";
+
+    $(function () {
+      $('#pagination').twbsPagination({
+        totalPages: Number(pages),
+        visiblePages: 10,
+        first: '처음',
+        prev: '이전',
+        last: '마지막',
+        next: '다음',
+        startPage: Number(/*[[${param.page}]]*/""),
+        initiateStartPageClick: false,
+        onPageClick: function (event, page) {
+          window.location.href = '/board/list.do?page=' + page;
+        }
+      })
+    });
+  </script>
 </body>
 
 </html>
-
-<!--    <button type="button" class="btn btn-primary">Primary</button>
-        <button type="button" class="btn btn-secondary">Secondary</button>
-        <button type="button" class="btn btn-success">Success</button>
-        <button type="button" class="btn btn-danger">Danger</button>
-        <button type="button" class="btn btn-warning">Warning</button>
-        <button type="button" class="btn btn-info">Info</button>
-        <button type="button" class="btn btn-light">Light</button>
-        <button type="button" class="btn btn-dark">Dark</button>
-        <button type="button" class="btn btn-link">Link</button>-->
