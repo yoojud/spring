@@ -10,7 +10,15 @@
 <body>
     <div class="container">
         <div style="padding:20px">
-          <h3>게시글 목록</h3>
+          <nav class="navbar navbar-expand-lg bg-primary-subtle fw-bold" rounded>
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">게시판</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav"/>
+            </div>
+          </nav>
 
           <form th:action="@{/board/list.do}" method="get" class="row row-cols-lg-auto g-3 align-items-center">
               <div class="col-12">
@@ -22,19 +30,19 @@
               </div>
 
               <div class="col-12">
-                  <button type="submit" class="btn btn-primary">검색</button>
-                  <a href="/board/insert.do" class="btn btn-success">글쓰기</a>
-              </div>
+                <button type="submit" class="btn btn-primary">검색</button>
+                <a href="/board/insert.do" class="btn btn-success">글쓰기</a>
+            </div>
           </form>
 
           <table class="table" style="margin-top: 20px;">
               <thead>
                 <tr>
-                  <th scope="col">#</th>
+                  <th scope="col"> </th>
                   <th scope="col">제목</th>
                   <th scope="col">작성자</th>
+                  <th scope="col">작성일</th>
                   <th scope="col">조회수</th>
-                  <th scope="col">날짜</th>
                 </tr>
               </thead>
 
@@ -45,8 +53,8 @@
                     <a th:href="@{/board/selectone.do(no=${obj.no})}" th:text="${obj.title}"></a>
                   </td>
                   <td th:text="${obj.writer}"></td>
-                  <td th:text="${obj.hit}"></td>
                   <td th:text="${obj.regdate}"></td>
+                  <td th:text="${obj.hit}"></td>
                 </tr>
               </tbody>
           </table>
