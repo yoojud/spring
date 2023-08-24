@@ -47,16 +47,16 @@
 
             <div>
                 <label class="lbl">조회수</label>
-                <input type="text" id="hit" name="hit" th:value="${board.hit}" readonly />
+                <input type="text" id="hit" th:value="${board.hit}" readonly />
             </div>
 
             <div style="margin-bottom: 5px;">
                 <label class="lbl">날짜</label>
-                <input type="text" id="regdate" name="regdate" th:value="${board.regdate}" readonly />
+                <input type="text" id="regdate" th:value="${board.regdate}" readonly />
             </div>
 
             <div>
-                <input type="button" class="btn btn-primary" onclick="handleWrite()" value="글변경" />
+                <input type="button" class="btn btn-primary" onclick="handleUpdate()" value="글변경" />
                 <a href="/board/list.do" class="btn btn-success">목록으로</a>
             </div>
         </form>
@@ -98,7 +98,7 @@
         quill.pasteHTML(cont);
 
         // 제목, 작성자의 유효성검사
-        function handleWrite() {
+        function handleUpdate() {
             const title = document.getElementById('title');
             const writer = document.getElementById('writer');
 

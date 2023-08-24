@@ -1,92 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>게시판목록</title>
-  <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판목록</title>
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
 </head>
 
 <body>
-  <div class="container">
-    <h3>게시글 목록</h3>
+    <div class="container">
+        <div style="padding:20px">
+          <h3>게시글 목록</h3>
 
-    <form th:action="@{/board/list.do}" method="get" class="row row-cols-lg-auto g-3 align-items-center">
-      <div class="col-12">
-        <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
-        <div class="input-group">
-          <div class="input-group-text">검색</div>
-          <input type="text" class="form-control" id="inlineFormInputGroupUsername" name="txt" placeholder="검색어" />
-        </div>
+          <form th:action="@{/board/list.do}" method="get" class="row row-cols-lg-auto g-3 align-items-center">
+              <div class="col-12">
+                  <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
+                  <div class="input-group">
+                    <div class="input-group-text">검색</div>
+                    <input type="text" class="form-control" id="inlineFormInputGroupUsername" name="txt" placeholder="검색어" />
+                  </div>
+              </div>
+
+              <div class="col-12">
+                  <button type="submit" class="btn btn-primary">검색</button>
+                  <a href="/board/insert.do" class="btn btn-success">글쓰기</a>
+              </div>
+          </form>
+
+          <table class="table" style="margin-top: 20px;">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">제목</th>
+                  <th scope="col">작성자</th>
+                  <th scope="col">조회수</th>
+                  <th scope="col">날짜</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr th:each="obj : ${list}">
+                  <th th:text="${obj.no}"></th>
+                  <td>
+                    <a th:href="@{/board/selectone.do(no=${obj.no})}" th:text="${obj.title}"></a>
+                  </td>
+                  <td th:text="${obj.writer}"></td>
+                  <td th:text="${obj.hit}"></td>
+                  <td th:text="${obj.regdate}"></td>
+                </tr>
+              </tbody>
+          </table>
+
+          <div class="container text-center">
+            <div class="row justify-content-md-center">
+              <div class="col-md-auto">
+                <nav aria-label="Page navigation example">
+                  <ul class="pagination" id="pagination"></ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+
       </div>
-
-      <div class="col-12">
-        <button type="submit" class="btn btn-primary">검색</button>
-        <a href="/board/insert.do" class="btn btn-success">글쓰기</a>
-      </div>
-    </form>
-
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">제목</th>
-          <th scope="col">작성자</th>
-          <th scope="col">조회수</th>
-          <th scope="col">날짜</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr th:each="obj : ${list}">
-          <th th:text="${obj.no}"></th>
-          <td>
-            <a th:href="@{/board/selectone.do(no=${obj.no})}" th:text="${obj.title}"></a>
-          </td>
-          <td th:text="${obj.writer}"></td>
-          <td th:text="${obj.hit}"></td>
-          <td th:text="${obj.regdate}"></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="container text-center">
-      <div class="row justify-content-md-center">
-        <div class="col-md-auto">
-          <nav aria-label="Page navigation example">
-            <ul class="pagination" id="pagination"></ul>
-          </nav>
-        </div>
-      </div>
+ 
     </div>
 
-  </div>
+    <script th:src="@{/js/jquery-3.7.0.min.js}"></script>
+    <script th:src="@{/js/jquery.twbsPagination.min.js}"></script>
+    <script th:inline="javascript">
 
+      const pages = /*[[${pages}]]*/"";
 
-  <script th:src="@{/js/jquery-3.7.0.min.js}"></script>
-  <script th:src="@{/js/jquery.twbsPagination.min.js}"></script>
-  <script th:inline="javascript">
-
-    const page =/*[[${pages}]]*/"";
-
-    $(function () {
-      $('#pagination').twbsPagination({
-        totalPages: Number(pages),
-        visiblePages: 10,
-        first: '처음',
-        prev: '이전',
-        last: '마지막',
-        next: '다음',
-        startPage: Number(/*[[${param.page}]]*/""),
-        initiateStartPageClick: false,
-        onPageClick: function (event, page) {
-          window.location.href = '/board/list.do?page=' + page;
-        }
-      })
-    });
-  </script>
+      $(function() {
+        $('#pagination').twbsPagination({
+          totalPages : Number(pages), 
+          visiblePages: 10,
+          first : '처음',
+          prev : '이전',
+          last : '마지막',
+          next : '다음',
+          startPage: Number(/*[[${param.page}]]*/""),
+          initiateStartPageClick:false,
+          onPageClick :function (event, page) {
+            window.location.href = '/board/list.do?page=' + page;
+          }
+        })
+      });
+    </script>
 </body>
-
 </html>
