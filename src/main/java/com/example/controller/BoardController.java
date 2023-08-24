@@ -160,8 +160,8 @@ public class BoardController {
     @PostMapping(value="/board/insertaction.do")
     public String boardInsertAction(@ModelAttribute Board board) {
         board.setNo(  System.currentTimeMillis() ); // 중복되지 않는값
-        board.setHit( 1237L );
-        board.setRegdate( new Date() );
+        board.setHit(1L);
+        board.setRegdate(null);
 
         System.out.println(board.toString());
         bRepository.save(board);

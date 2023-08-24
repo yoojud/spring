@@ -28,5 +28,5 @@ public class Board {
     private String content;
     private String writer;
     private long hit = 1;
-    private Date regdate;
+    private Date regdate = new Date();
 }
