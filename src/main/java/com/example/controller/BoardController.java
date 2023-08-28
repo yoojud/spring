@@ -16,6 +16,7 @@ import com.example.repository.BoardRepository;
 
 import lombok.RequiredArgsConstructor;
 
+
 // 컨트롤러 => 크롬에서 주소를 입력하면 자동으로 실행되는 역할
 @Controller
 @RequiredArgsConstructor // 저장소 객체 생성용
@@ -160,13 +161,33 @@ public class BoardController {
     @PostMapping(value="/board/insertaction.do")
     public String boardInsertAction(@ModelAttribute Board board) {
         board.setNo(  System.currentTimeMillis() ); // 중복되지 않는값
-        board.setHit(1L);
-        board.setRegdate(null);
+        board.setHit( 1237L );
+        board.setRegdate( new Date() );
 
         System.out.println(board.toString());
         bRepository.save(board);
 
         return "redirect:/board/list.do";
     }
+
+
+    //  <a th:href="@{/board/updatelike.do(no=${   })}">좋아요</a>
+
+    // board/updatehit.do?no=글번호
+    @GetMapping(value = "/board/updatehit.do")
+    public String boardUpdateLike(@RequestParam(name="no") long no) {
+        // 1. 글번호를 이용해서 정보를 받아옴
+        Board brd = bRepository.findById(no).orElse(null);
+
+        // 2. 조회수를 1증가시킴
+        brd.setHit(  brd.getHit() + 1 ); // 조회수 1증가
+
+        // 3. 증가된 조회수 정보를 다시 저장함.
+        bRepository.save(brd);
+
+        // 4. 적절한 페이지로 이동함
+        return "redirect:/board/selectone.do?no="+no;
+    }
+
 
 }

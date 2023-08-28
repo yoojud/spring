@@ -13,10 +13,10 @@
 <body>
     <div class="container">
         <form th:action="@{/board/insertaction.do}" method="post" id="form">
-            <h3>게시판글쓰기</h3>
+            <h3>글쓰기</h3>
             <div style="margin-bottom: 5px;">
                 <label class="lbl">제목</label>
-                <input type="text" placeholder="제목" id="title" name="title" />
+                <input type="text" placeholder="제목" id="title" name="title" style="width: 560px;" />
             </div>
             <div>
                 <label class="lbl">내용</label>
@@ -31,7 +31,7 @@
             </div>
             <div style="margin-bottom: 5px;">
                 <label class="lbl">작성자</label>
-                <input type="text" placeholder="작성자" id="writer" name="writer" />
+                <input type="text" placeholder="작성자" id="writer" name="writer" style="width: 560px;" />
             </div>
             <div>
                 <input type="button" class="btn btn-primary" onclick="handleWrite()" value="글쓰기" />
