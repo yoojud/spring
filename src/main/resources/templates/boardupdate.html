@@ -16,12 +16,11 @@
 
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/home.do">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">게시판변경</li>
+                <li class="breadcrumb-item active" aria-current="page">게시글 수정</li>
             </ol>
         </nav>
 
-        <form th:action="@{/board/insertaction.do}" method="post" id="form">
+        <form th:action="@{/board/updateaction.do}" method="post" id="form">
             <div style="margin-bottom: 5px;">
                 <label class="lbl">번호</label>
                 <input type="text" id="no" name="no" th:value="${board.no}" readonly />
@@ -56,8 +55,8 @@
             </div>
 
             <div>
-                <input type="button" class="btn btn-primary" onclick="handleUpdate()" value="글변경" />
-                <a href="/board/list.do" class="btn btn-success">목록으로</a>
+                <input type="button" class="btn btn-primary" onclick="handleUpdate()" value="수정" />
+                <a href="/board/list.do" class="btn btn-success">목록</a>
             </div>
         </form>
     </div>

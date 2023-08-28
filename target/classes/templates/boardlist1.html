@@ -23,17 +23,14 @@
       </nav>
 
       <form th:action="@{/board/list.do}" method="get" class="row row-cols-lg-auto g-3 align-items-center">
-        <div class="col-12" style="margin-top: 40px;" >
+        <div class="col-12" style="margin-top: 40px;">
           <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
           <div class="input-group mb-3">
-            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">제목</button>
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false">제목</button>
             <input type="text" class="form-control" aria-label="Text input with dropdown button">
             <button type="submit" class="btn btn-primary">검색</button>
           </div>
-        </div>
-
-        <div>
-          <a href="/board/insert.do" class="btn btn-success">글쓰기</a>
         </div>
       </form>
 
@@ -56,7 +53,7 @@
             </td>
             <td th:text="${obj.writer}"></td>
             <td th:text="${obj.hit}"></td>
-            <td th:text="${#dates.format(obj.regdate,'yyyy-mm-dd')}"></td>
+            <td th:text="${#dates.format(obj.regdate,'YYYY-MM-dd HH:mm:ss')}"></td>
           </tr>
         </tbody>
       </table>
@@ -70,7 +67,11 @@
           </div>
         </div>
       </div>
-
+      <div class="d-flex mb-3">
+        <div class="ms-auto p-2">
+          <a href="/board/insert.do" class="btn btn-primary">글쓰기</a>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -85,10 +86,10 @@
       $('#pagination').twbsPagination({
         totalPages: Number(pages),
         visiblePages: 10,
-        first: '처음',
-        prev: '이전',
-        last: '마지막',
-        next: '다음',
+        first: '<<',
+        prev: '<',
+        last: '>>',
+        next: '>',
         startPage: Number(/*[[${param.page}]]*/""),
         initiateStartPageClick: false,
         onPageClick: function (event, page) {

@@ -22,8 +22,6 @@
                 <label class="lbl">내용</label>
                 <div style="display: inline-block; width:560px;">
                     <div id="editor" style="height: 300px;">
-                        <p>Hello World!</p>
-                        <p>Some initial <strong>bold</strong> text</p>
                         <p><br></p>
                     </div>
                     <textarea name="content" id="content" style="display: none;"></textarea>
@@ -34,8 +32,8 @@
                 <input type="text" placeholder="작성자" id="writer" name="writer" style="width: 560px;" />
             </div>
             <div>
-                <input type="button" class="btn btn-primary" onclick="handleWrite()" value="글쓰기" />
-                <a href="/board/list.do" class="btn btn-primary">목록으로</a>
+                <input type="button" class="btn btn-primary" onclick="handleWrite()" value="작성" />
+                <a href="/board/list.do" class="btn btn-primary">목록</a>
             </div>
         </form>
     </div>

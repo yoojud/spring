@@ -42,13 +42,13 @@
 
         <div>
             <label class="lbl">등록일자</label>
-            <span th:text="${board.regdate}"></span>
+            <span th:text="${#dates.format(board.regdate,'YYYY-MM-dd HH:mm:ss')}"></span>
         </div>
 
 
         <div style="margin-top: 10px;">
             <a th:href="@{/board/list.do}" th:text="목록" class="btn btn-secondary"></a>
-            <a th:href="@{/board/update.do(no=${board.no})}" th:text="변경" class="btn btn-dark"></a>
+            <a th:href="@{/board/update.do(no=${board.no})}" th:text="수정" class="btn btn-dark"></a>
             <button class="btn btn-danger" th:onclick="|javascript:deleteBoard('${board.no}')|">삭제</button>
             <a th:if="${prev > 0}" th:href="@{/board/selectone.do(no=${prev})}" th:text="이전글" class="btn bg-body-tertiary"></a>
             <a th:if="${next > 0}" th:href="@{/board/selectone.do(no=${next})}" th:text="다음글" class="btn bg-body-tertiary"></a>

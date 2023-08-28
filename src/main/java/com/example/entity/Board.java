@@ -29,4 +29,5 @@ public class Board {
     private String writer;
     private long hit = 1;
     private Date regdate = new Date();
+    public static int lastIndex=1;
 }
