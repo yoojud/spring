@@ -2,6 +2,8 @@ package com.example.repository;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.Aggregation;
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -42,4 +44,6 @@ public interface BoardRepository extends MongoRepository<Board, Long> {
         "{ '$limit'   : 1                        }"
     })
     Long selectBoardNext(long no);
+
+    Page<Board> findByTitleContainingOrContentContainingOrderByNoDesc(String txt, String txt2, PageRequest pageRequest);
 }

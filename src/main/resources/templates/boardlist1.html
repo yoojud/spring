@@ -24,11 +24,11 @@
 
       <form th:action="@{/board/list.do}" method="get" class="row row-cols-lg-auto g-3 align-items-center">
         <div class="col-12" style="margin-top: 40px;">
-          <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
+          <label class="visually-hidden" for="inlineFormInputGroupUsername">txt</label>
           <div class="input-group mb-3">
             <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
               aria-expanded="false">제목</button>
-            <input type="text" class="form-control" aria-label="Text input with dropdown button">
+            <input type="text" class="form-control" aria-label="Text input with dropdown button" name="txt" placeholder="검색어 입력">
             <button type="submit" class="btn btn-primary">검색</button>
           </div>
         </div>

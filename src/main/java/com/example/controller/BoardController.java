@@ -133,7 +133,8 @@ public class BoardController {
         model.addAttribute("pages", (total - 1) / 10 + 1);
 
         // 4. resources/templates/boardlist1.html 표시됨.
-        return "boardlist1";
+         return "boardlist1";
+        //return "redirect:/board/list.do?txt=" + txt;
     }
 
     // 글쓰기 화면 http://127.0.0.1:8080/board/insert.do
@@ -145,7 +146,7 @@ public class BoardController {
     // 사용자가 입력후 버튼 눌렀을때 안보이는 화면
     @PostMapping(value = "/board/insertaction.do")
     public String boardInsertAction(@ModelAttribute Board board) {
-        //board.setNo(Board.lastIndex++); // 중복되지 않는값
+        // board.setNo(Board.lastIndex++); // 중복되지 않는값
         board.setNo(System.currentTimeMillis());
         board.setHit(1L);
         board.setRegdate(new Date());
